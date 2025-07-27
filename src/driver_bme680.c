@@ -837,6 +837,8 @@ uint8_t bme680_init(bme680_handle_t *handle)
 
             return 1;                                                                /* return error */
         }
+        handle->page = 0;                                                            /* set page 0 */
+        (void)a_bme680_change_spi_page(handle, 0);                                   /* change spi page 0 */
     }
 
     if (a_bme680_iic_spi_read(handle, BME680_REG_ID, (uint8_t *)&id, 1) != 0)        /* read chip id */

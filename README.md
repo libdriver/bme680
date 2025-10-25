@@ -10,7 +10,7 @@
 
 The BME680 is an integrated environmental sensor designed for mobile applications and wearables, where size and low power consumption are crucial. It expands Bosch Sensortec's existing family of environmental sensors by integrating high linearity and high accuracy sensors for gas, pressure, humidity, and temperature for the first time.
 
-LibDriver BME680 is a full-featured driver of BME680 launched by LibDriver.It provides functions of pressure, temperature, humidity and gas reading. LibDriver is MISRA compliant.
+LibDriver BME680 is a full-featured driver for BME680, launched by LibDriver.It provides pressure reading, temperature reading, humidity reading, gas reading and additional features. LibDriver is MISRA compliant.
 
 ### Table of Contents
 

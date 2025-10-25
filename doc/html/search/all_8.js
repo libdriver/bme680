@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['range_5fsw_5ferr_249',['range_sw_err',['../structbme680__handle__s.html#aa4de966258d798da06adeb9442f2b65a',1,'bme680_handle_s']]],
-  ['res_5fheat_5frange_250',['res_heat_range',['../structbme680__handle__s.html#a69cc977f1f6fb4ccfb8d69712824a077',1,'bme680_handle_s']]],
-  ['res_5fheat_5fval_251',['res_heat_val',['../structbme680__handle__s.html#a91f85f7e4c634baf65262c8a31b7ba2b',1,'bme680_handle_s']]]
+  ['mainpage_2eh_0',['mainpage.h',['../mainpage_8h.html',1,'']]],
+  ['manufacturer_5fname_1',['MANUFACTURER_NAME',['../driver__bme680_8c.html#aaa2b8f5b105c3019df0cb346f472e803',1,'driver_bme680.c']]],
+  ['manufacturer_5fname_2',['manufacturer_name',['../structbme680__info__s.html#ad25285dbf810c90f8eaf3fcef6f2b2ea',1,'bme680_info_s']]],
+  ['max_5fcurrent_3',['MAX_CURRENT',['../driver__bme680_8c.html#a2989837a37d6d63b59c6dd541b785435',1,'driver_bme680.c']]],
+  ['max_5fcurrent_5fma_4',['max_current_ma',['../structbme680__info__s.html#a9db82802561bf22d799b03a345f1d1dc',1,'bme680_info_s']]]
 ];

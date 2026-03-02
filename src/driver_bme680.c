@@ -109,7 +109,7 @@
 #define BME680_REG_PRESS_XLSB          0x21        /**< press xlsb register */
 #define BME680_REG_PRESS_LSB           0x20        /**< press lsb register */
 #define BME680_REG_PRESS_MSB           0x1F        /**< press msb register */
-#define BME680_REG_EAS_STATUS_0        0x1D        /**< eas status 0 register */
+#define BME680_REG_MEAS_STATUS         0x1D        /**< meas status register */
 
 /**
  * @brief     change spi page
@@ -1248,7 +1248,7 @@ uint8_t bme680_get_new_data_status(bme680_handle_t *handle, bme680_bool_t *enabl
         return 3;                                                                   /* return error */
     }
 
-    if (a_bme680_iic_spi_read(handle, BME680_REG_EAS_STATUS_0, &prev, 1) != 0)      /* read status */
+    if (a_bme680_iic_spi_read(handle, BME680_REG_MEAS_STATUS, &prev, 1) != 0)       /* read status */
     {
         handle->debug_print("bme680: read status failed.\n");                       /* read status failed */
 
@@ -1283,7 +1283,7 @@ uint8_t bme680_get_gas_measuring_status(bme680_handle_t *handle, bme680_bool_t *
         return 3;                                                                   /* return error */
     }
 
-    if (a_bme680_iic_spi_read(handle, BME680_REG_EAS_STATUS_0, &prev, 1) != 0)      /* read status */
+    if (a_bme680_iic_spi_read(handle, BME680_REG_MEAS_STATUS, &prev, 1) != 0)       /* read status */
     {
         handle->debug_print("bme680: read status failed.\n");                       /* read status failed */
 
@@ -1318,7 +1318,7 @@ uint8_t bme680_get_measuring_status(bme680_handle_t *handle, bme680_bool_t *enab
         return 3;                                                                   /* return error */
     }
 
-    if (a_bme680_iic_spi_read(handle, BME680_REG_EAS_STATUS_0, &prev, 1) != 0)      /* read status */
+    if (a_bme680_iic_spi_read(handle, BME680_REG_MEAS_STATUS, &prev, 1) != 0)       /* read status */
     {
         handle->debug_print("bme680: read status failed.\n");                       /* read status failed */
 
@@ -1353,7 +1353,7 @@ uint8_t bme680_get_gas_measuring_index(bme680_handle_t *handle, uint8_t *index)
         return 3;                                                                   /* return error */
     }
 
-    if (a_bme680_iic_spi_read(handle, BME680_REG_EAS_STATUS_0, &prev, 1) != 0)      /* read status */
+    if (a_bme680_iic_spi_read(handle, BME680_REG_MEAS_STATUS, &prev, 1) != 0)       /* read status */
     {
         handle->debug_print("bme680: read status failed.\n");                       /* read status failed */
 
@@ -2435,7 +2435,7 @@ uint8_t bme680_read_gas_resistance(bme680_handle_t *handle, uint16_t *adc_raw, u
 
         return 4;                                                                          /* return error */
     }
-    if (a_bme680_iic_spi_read(handle, BME680_REG_EAS_STATUS_0, &prev, 1) != 0)             /* read status */
+    if (a_bme680_iic_spi_read(handle, BME680_REG_MEAS_STATUS, &prev, 1) != 0)              /* read status */
     {
         handle->debug_print("bme680: read status failed.\n");                              /* read status failed */
 
@@ -2555,7 +2555,7 @@ uint8_t bme680_read_pressure(bme680_handle_t *handle, uint32_t *pressure_raw, fl
  *             - 1 temperature read failed
  *             - 2 handle is NULL
  *             - 3 handle is not initialized
- *             - 4 compensate pressure failed
+ *             - 4 compensate temperature failed
  *             - 5 read timeout
  * @note       none
  */
@@ -2642,7 +2642,7 @@ uint8_t bme680_read_temperature(bme680_handle_t *handle, uint32_t *temperature_r
  *             - 1 read failed
  *             - 2 handle is NULL
  *             - 3 handle is not initialized
- *             - 4 compensate pressure failed
+ *             - 4 compensate humidity failed
  *             - 5 read timeout
  * @note       none
  */
@@ -2983,7 +2983,7 @@ uint8_t bme680_read(bme680_handle_t *handle, uint32_t *temperature_raw, float *t
 
         return 4;                                                                          /* return error */
     }
-    if (a_bme680_iic_spi_read(handle, BME680_REG_EAS_STATUS_0, &prev, 1) != 0)             /* read status */
+    if (a_bme680_iic_spi_read(handle, BME680_REG_MEAS_STATUS, &prev, 1) != 0)              /* read status */
     {
         handle->debug_print("bme680: read status failed.\n");                              /* read status failed */
 

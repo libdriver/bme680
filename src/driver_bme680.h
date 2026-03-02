@@ -463,7 +463,7 @@ uint8_t bme680_read_pressure(bme680_handle_t *handle, uint32_t *pressure_raw, fl
  *             - 1 temperature read failed
  *             - 2 handle is NULL
  *             - 3 handle is not initialized
- *             - 4 compensate pressure failed
+ *             - 4 compensate temperature failed
  *             - 5 read timeout
  * @note       none
  */
@@ -479,7 +479,7 @@ uint8_t bme680_read_temperature(bme680_handle_t *handle, uint32_t *temperature_r
  *             - 1 read failed
  *             - 2 handle is NULL
  *             - 3 handle is not initialized
- *             - 4 compensate pressure failed
+ *             - 4 compensate humidity failed
  *             - 5 read timeout
  * @note       none
  */

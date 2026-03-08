@@ -116,7 +116,6 @@ float pressure_pa;
 float humidity_percentage;
 float ohms;
 uint8_t index = 0;
-float idac_ma = 5.0f;
 float degree_celsius = 200.0f;
 uint16_t gas_wait_ms = 150;
 
@@ -136,7 +135,7 @@ for (i = 0; i < 3; i++)
     bme680_interface_delay_ms(1000);
 
     /* read data */
-    res = bme680_gas_read(idac_ma, degree_celsius, gas_wait_ms, index,
+    res = bme680_gas_read(degree_celsius, gas_wait_ms, index,
                          (float *)&temperature_c, (float *)&pressure_pa, (float *)&humidity_percentage, (float *)&ohms);
     if (res != 0)
     {
@@ -151,7 +150,6 @@ for (i = 0; i < 3; i++)
     bme680_interface_debug_print("bme680: pressure is %0.2fPa.\n", pressure_pa);
     bme680_interface_debug_print("bme680: humidity is %0.2f%%.\n", humidity_percentage);
     bme680_interface_debug_print("bme680: gas index is %d.\n", index);
-    bme680_interface_debug_print("bme680: idac is %0.2fmA.\n", idac_ma);
     bme680_interface_debug_print("bme680: degree celsius is %0.1fC.\n", degree_celsius);
     bme680_interface_debug_print("bme680: gas wait is %d ms.\n", gas_wait_ms);
     bme680_interface_debug_print("bme680: gas resistance is %0.2fohms.\n", ohms);

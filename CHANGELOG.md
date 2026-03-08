@@ -1,3 +1,9 @@
+## 1.0.5 (2026-03-08)
+
+## Bug Fixes
+
+- fix gas read bugs
+
 ## 1.0.4 (2026-03-02)
 
 ## Bug Fixes

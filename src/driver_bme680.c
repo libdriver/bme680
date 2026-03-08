@@ -941,19 +941,19 @@ uint8_t bme680_deinit(bme680_handle_t *handle)
 }
 
 /**
- * @brief     set idac heat
+ * @brief     set idac heater
  * @param[in] *handle pointer to a bme680 handle structure
  * @param[in] index input index
  * @param[in] reg input register
  * @return    status code
  *            - 0 success
- *            - 1 set idac heat failed
+ *            - 1 set idac heater failed
  *            - 2 handle is NULL
  *            - 3 handle is not initialized
  *            - 4 index > 9
  * @note      none
  */
-uint8_t bme680_set_idac_heat(bme680_handle_t *handle, uint8_t index, uint8_t reg)
+uint8_t bme680_set_idac_heater(bme680_handle_t *handle, uint8_t index, uint8_t reg)
 {
     uint8_t prev;
     
@@ -973,9 +973,9 @@ uint8_t bme680_set_idac_heat(bme680_handle_t *handle, uint8_t index, uint8_t reg
     }
 
     prev = reg;
-    if (a_bme680_iic_spi_write(handle, BME680_REG_IDAC_HEAT_X + index, &prev, 1) != 0)        /* write idac heat */
+    if (a_bme680_iic_spi_write(handle, BME680_REG_IDAC_HEAT_X + index, &prev, 1) != 0)        /* write idac heater */
     {
-        handle->debug_print("bme680: write idac heat failed.\n");                             /* write idac heat failed */
+        handle->debug_print("bme680: write idac heater failed.\n");                           /* write idac heater failed */
 
         return 1;                                                                             /* return error */
     }
@@ -984,19 +984,19 @@ uint8_t bme680_set_idac_heat(bme680_handle_t *handle, uint8_t index, uint8_t reg
 }
 
 /**
- * @brief      get idac heat
+ * @brief      get idac heater
  * @param[in]  *handle pointer to a bme680 handle structure
  * @param[in]  index input index
  * @param[out] *reg pointer to an input register buffer
  * @return     status code
  *             - 0 success
- *             - 1 get idac heat failed
+ *             - 1 get idac heater failed
  *             - 2 handle is NULL
  *             - 3 handle is not initialized
  *             - 4 index > 9
  * @note       none
  */
-uint8_t bme680_get_idac_heat(bme680_handle_t *handle, uint8_t index, uint8_t *reg)
+uint8_t bme680_get_idac_heater(bme680_handle_t *handle, uint8_t index, uint8_t *reg)
 {
     if (handle == NULL)                                                                    /* check handle */
     {
@@ -1013,9 +1013,9 @@ uint8_t bme680_get_idac_heat(bme680_handle_t *handle, uint8_t index, uint8_t *re
         return 4;                                                                          /* return error */
     }
 
-    if (a_bme680_iic_spi_read(handle, BME680_REG_IDAC_HEAT_X + index, reg, 1) != 0)        /* read idac heat */
+    if (a_bme680_iic_spi_read(handle, BME680_REG_IDAC_HEAT_X + index, reg, 1) != 0)        /* read idac heater */
     {
-        handle->debug_print("bme680: read idac heat failed.\n");                           /* read idac heat failed */
+        handle->debug_print("bme680: read idac heater failed.\n");                         /* read idac heater failed */
 
         return 1;                                                                          /* return error */
     }
@@ -1024,19 +1024,19 @@ uint8_t bme680_get_idac_heat(bme680_handle_t *handle, uint8_t index, uint8_t *re
 }
 
 /**
- * @brief     set resistance heat
+ * @brief     set resistance heater
  * @param[in] *handle pointer to a bme680 handle structure
  * @param[in] index input index
  * @param[in] reg input register
  * @return    status code
  *            - 0 success
- *            - 1 set resistance heat failed
+ *            - 1 set resistance heater failed
  *            - 2 handle is NULL
  *            - 3 handle is not initialized
  *            - 4 index > 9
  * @note      none
  */
-uint8_t bme680_set_resistance_heat(bme680_handle_t *handle, uint8_t index, uint8_t reg)
+uint8_t bme680_set_resistance_heater(bme680_handle_t *handle, uint8_t index, uint8_t reg)
 {
     uint8_t prev;
     
@@ -1056,9 +1056,9 @@ uint8_t bme680_set_resistance_heat(bme680_handle_t *handle, uint8_t index, uint8
     }
 
     prev = reg;
-    if (a_bme680_iic_spi_write(handle, BME680_REG_RES_HEAT_X + index, &prev, 1) != 0)        /* write resistance heat */
+    if (a_bme680_iic_spi_write(handle, BME680_REG_RES_HEAT_X + index, &prev, 1) != 0)        /* write resistance heater */
     {
-        handle->debug_print("bme680: write resistance heat failed.\n");                      /* write resistance heat failed */
+        handle->debug_print("bme680: write resistance heater failed.\n");                    /* write resistance heater failed */
 
         return 1;                                                                            /* return error */
     }
@@ -1067,19 +1067,19 @@ uint8_t bme680_set_resistance_heat(bme680_handle_t *handle, uint8_t index, uint8
 }
 
 /**
- * @brief      get resistance heat
+ * @brief      get resistance heater
  * @param[in]  *handle pointer to a bme680 handle structure
  * @param[in]  index input index
  * @param[out] *reg pointer to an input register buffer
  * @return     status code
  *             - 0 success
- *             - 1 get resistance heat failed
+ *             - 1 get resistance heater failed
  *             - 2 handle is NULL
  *             - 3 handle is not initialized
  *             - 4 index > 9
  * @note       none
  */
-uint8_t bme680_get_resistance_heat(bme680_handle_t *handle, uint8_t index, uint8_t *reg)
+uint8_t bme680_get_resistance_heater(bme680_handle_t *handle, uint8_t index, uint8_t *reg)
 {
     if (handle == NULL)                                                                   /* check handle */
     {
@@ -1096,9 +1096,9 @@ uint8_t bme680_get_resistance_heat(bme680_handle_t *handle, uint8_t index, uint8
         return 4;                                                                         /* return error */
     }
 
-    if (a_bme680_iic_spi_read(handle, BME680_REG_RES_HEAT_X + index, reg, 1) != 0)        /* read resistance heat */
+    if (a_bme680_iic_spi_read(handle, BME680_REG_RES_HEAT_X + index, reg, 1) != 0)        /* read resistance heater */
     {
-        handle->debug_print("bme680: read resistance heat failed.\n");                    /* read resistance heat failed */
+        handle->debug_print("bme680: read resistance heater failed.\n");                  /* read resistance heater failed */
 
         return 1;                                                                         /* return error */
     }
@@ -1974,17 +1974,17 @@ uint8_t bme680_get_spi_wire(bme680_handle_t *handle, bme680_spi_wire_t *spi)
 }
 
 /**
- * @brief     enable or disable heat off
+ * @brief     enable or disable heater off
  * @param[in] *handle pointer to a bme680 handle structure
  * @param[in] enable bool value
  * @return    status code
  *            - 0 success
- *            - 1 set heat off failed
+ *            - 1 set heater off failed
  *            - 2 handle is NULL
  *            - 3 handle is not initialized
  * @note      none
  */
-uint8_t bme680_set_heat_off(bme680_handle_t *handle, bme680_bool_t enable)
+uint8_t bme680_set_heater_off(bme680_handle_t *handle, bme680_bool_t enable)
 {
     uint8_t prev;
 
@@ -2016,17 +2016,17 @@ uint8_t bme680_set_heat_off(bme680_handle_t *handle, bme680_bool_t enable)
 }
 
 /**
- * @brief      get heat off status
+ * @brief      get heater off status
  * @param[in]  *handle pointer to a bme680 handle structure
  * @param[out] *enable pointer to a bool value buffer
  * @return     status code
  *             - 0 success
- *             - 1 get heat off failed
+ *             - 1 get heater off failed
  *             - 2 handle is NULL
  *             - 3 handle is not initialized
  * @note       none
  */
-uint8_t bme680_get_heat_off(bme680_handle_t *handle, bme680_bool_t *enable)
+uint8_t bme680_get_heater_off(bme680_handle_t *handle, bme680_bool_t *enable)
 {
     uint8_t prev;
 
@@ -2212,7 +2212,7 @@ uint8_t bme680_get_convert_index(bme680_handle_t *handle, uint8_t *index)
 }
 
 /**
- * @brief      convert the resistance heat to the register raw data
+ * @brief      convert the resistance heater to the register raw data
  * @param[in]  *handle pointer to a bme680 handle structure
  * @param[in]  degree_celsius input degree celsius
  * @param[out] *reg pointer to a register raw buffer
@@ -2222,7 +2222,7 @@ uint8_t bme680_get_convert_index(bme680_handle_t *handle, uint8_t *index)
  *             - 3 handle is not initialized
  * @note       none
  */
-uint8_t bme680_resistance_heat_convert_to_register(bme680_handle_t *handle, float degree_celsius, uint8_t *reg)
+uint8_t bme680_resistance_heater_convert_to_register(bme680_handle_t *handle, float degree_celsius, uint8_t *reg)
 {
     if (handle == NULL)                                                 /* check handle */
     {
@@ -2239,7 +2239,7 @@ uint8_t bme680_resistance_heat_convert_to_register(bme680_handle_t *handle, floa
 }
 
 /**
- * @brief      convert the idac heat to the register raw data
+ * @brief      convert the idac heater to the register raw data
  * @param[in]  *handle pointer to a bme680 handle structure
  * @param[in]  ma input ma
  * @param[out] *reg pointer to a register raw buffer
@@ -2249,7 +2249,7 @@ uint8_t bme680_resistance_heat_convert_to_register(bme680_handle_t *handle, floa
  *             - 3 handle is not initialized
  * @note       none
  */
-uint8_t bme680_idac_heat_convert_to_register(bme680_handle_t *handle, float ma, uint8_t *reg)
+uint8_t bme680_idac_heater_convert_to_register(bme680_handle_t *handle, float ma, uint8_t *reg)
 {
     if (handle == NULL)                         /* check handle */
     {
@@ -2266,7 +2266,7 @@ uint8_t bme680_idac_heat_convert_to_register(bme680_handle_t *handle, float ma, 
 }
 
 /**
- * @brief      convert the register raw data to idac heat
+ * @brief      convert the register raw data to idac heater
  * @param[in]  *handle pointer to a bme680 handle structure
  * @param[in]  reg register raw data
  * @param[out] *ma pointer to a ma buffer
@@ -2276,7 +2276,7 @@ uint8_t bme680_idac_heat_convert_to_register(bme680_handle_t *handle, float ma, 
  *             - 3 handle is not initialized
  * @note       none
  */
-uint8_t bme680_idac_heat_convert_to_data(bme680_handle_t *handle, uint8_t reg, float *ma)
+uint8_t bme680_idac_heater_convert_to_data(bme680_handle_t *handle, uint8_t reg, float *ma)
 {
     if (handle == NULL)                         /* check handle */
     {

@@ -1095,48 +1095,48 @@ uint8_t bme680_register_test(bme680_interface_t interface, bme680_address_t addr
     }
     bme680_interface_debug_print("bme680: heater stability status is %s.\n", enable == BME680_BOOL_TRUE ? "true" : "false");
     
-    /* bme680_set_heat_off/bme680_get_heat_off test */
-    bme680_interface_debug_print("bme680: bme680_set_heat_off/bme680_get_heat_off test.\n");
+    /* bme680_set_heater_off/bme680_get_heater_off test */
+    bme680_interface_debug_print("bme680: bme680_set_heater_off/bme680_get_heater_off test.\n");
     
-    /* disable heat off */
-    res = bme680_set_heat_off(&gs_handle, BME680_BOOL_FALSE);
+    /* disable heater off */
+    res = bme680_set_heater_off(&gs_handle, BME680_BOOL_FALSE);
     if (res != 0)
     {
-        bme680_interface_debug_print("bme680: set heat off failed.\n");
+        bme680_interface_debug_print("bme680: set heater off failed.\n");
         (void)bme680_deinit(&gs_handle); 
         
         return 1;
     }
-    bme680_interface_debug_print("bme680: disable heat off.\n");
-    res = bme680_get_heat_off(&gs_handle, &enable);
+    bme680_interface_debug_print("bme680: disable heater off.\n");
+    res = bme680_get_heater_off(&gs_handle, &enable);
     if (res != 0)
     {
-        bme680_interface_debug_print("bme680: get heat off failed.\n");
+        bme680_interface_debug_print("bme680: get heater off failed.\n");
         (void)bme680_deinit(&gs_handle); 
         
         return 1;
     }
-    bme680_interface_debug_print("bme680: check heat off %s.\n", enable == BME680_BOOL_FALSE ? "ok" : "error");
+    bme680_interface_debug_print("bme680: check heater off %s.\n", enable == BME680_BOOL_FALSE ? "ok" : "error");
     
-    /* enable heat off */
-    res = bme680_set_heat_off(&gs_handle, BME680_BOOL_TRUE);
+    /* enable heater off */
+    res = bme680_set_heater_off(&gs_handle, BME680_BOOL_TRUE);
     if (res != 0)
     {
-        bme680_interface_debug_print("bme680: set heat off failed.\n");
+        bme680_interface_debug_print("bme680: set heater off failed.\n");
         (void)bme680_deinit(&gs_handle); 
         
         return 1;
     }
-    bme680_interface_debug_print("bme680: enable heat off.\n");
-    res = bme680_get_heat_off(&gs_handle, &enable);
+    bme680_interface_debug_print("bme680: enable heater off.\n");
+    res = bme680_get_heater_off(&gs_handle, &enable);
     if (res != 0)
     {
-        bme680_interface_debug_print("bme680: get heat off failed.\n");
+        bme680_interface_debug_print("bme680: get heater off failed.\n");
         (void)bme680_deinit(&gs_handle); 
         
         return 1;
     }
-    bme680_interface_debug_print("bme680: check heat off %s.\n", enable == BME680_BOOL_TRUE ? "ok" : "error");
+    bme680_interface_debug_print("bme680: check heater off %s.\n", enable == BME680_BOOL_TRUE ? "ok" : "error");
     
     /* bme680_set_run_gas/bme680_get_run_gas test */
     bme680_interface_debug_print("bme680: bme680_set_run_gas/bme680_get_run_gas test.\n");
@@ -1207,56 +1207,56 @@ uint8_t bme680_register_test(bme680_interface_t interface, bme680_address_t addr
         bme680_interface_debug_print("bme680: check convert index %s.\n", i == index_check ? "ok" : "error");
     }
     
-    /* bme680_set_idac_heat/bme680_get_idac_heat test */
-    bme680_interface_debug_print("bme680: bme680_set_idac_heat/bme680_get_idac_heat test.\n");
+    /* bme680_set_idac_heater/bme680_get_idac_heater test */
+    bme680_interface_debug_print("bme680: bme680_set_idac_heater/bme680_get_idac_heater test.\n");
     
     for (i = 0; i < 10; i++)
     {
         reg = rand() % 0xFFU;
-        res = bme680_set_idac_heat(&gs_handle, i, reg);
+        res = bme680_set_idac_heater(&gs_handle, i, reg);
         if (res != 0)
         {
-            bme680_interface_debug_print("bme680: set idac heat failed.\n");
+            bme680_interface_debug_print("bme680: set idac heater failed.\n");
             (void)bme680_deinit(&gs_handle); 
             
             return 1;
         }
-        bme680_interface_debug_print("bme680: set index %d idac heat 0x%02X.\n", i, reg);
-        res = bme680_get_idac_heat(&gs_handle, i, &reg_check);
+        bme680_interface_debug_print("bme680: set index %d idac heater 0x%02X.\n", i, reg);
+        res = bme680_get_idac_heater(&gs_handle, i, &reg_check);
         if (res != 0)
         {
-            bme680_interface_debug_print("bme680: get idac heat failed.\n");
+            bme680_interface_debug_print("bme680: get idac heater failed.\n");
             (void)bme680_deinit(&gs_handle); 
             
             return 1;
         }
-        bme680_interface_debug_print("bme680: check idac heat %s.\n", reg == reg_check ? "ok" : "error");
+        bme680_interface_debug_print("bme680: check idac heater %s.\n", reg == reg_check ? "ok" : "error");
     }
     
-    /* bme680_set_resistance_heat/bme680_get_resistance_heat test */
-    bme680_interface_debug_print("bme680: bme680_set_resistance_heat/bme680_get_resistance_heat test.\n");
+    /* bme680_set_resistance_heater/bme680_get_resistance_heater test */
+    bme680_interface_debug_print("bme680: bme680_set_resistance_heater/bme680_get_resistance_heater test.\n");
     
     for (i = 0; i < 10; i++)
     {
         reg = rand() % 0xFFU;
-        res = bme680_set_resistance_heat(&gs_handle, i, reg);
+        res = bme680_set_resistance_heater(&gs_handle, i, reg);
         if (res != 0)
         {
-            bme680_interface_debug_print("bme680: set resistance heat failed.\n");
+            bme680_interface_debug_print("bme680: set resistance heater failed.\n");
             (void)bme680_deinit(&gs_handle); 
             
             return 1;
         }
-        bme680_interface_debug_print("bme680: set index %d resistance heat 0x%02X.\n", i, reg);
-        res = bme680_get_resistance_heat(&gs_handle, i, &reg_check);
+        bme680_interface_debug_print("bme680: set index %d resistance heater 0x%02X.\n", i, reg);
+        res = bme680_get_resistance_heater(&gs_handle, i, &reg_check);
         if (res != 0)
         {
-            bme680_interface_debug_print("bme680: get resistance heat failed.\n");
+            bme680_interface_debug_print("bme680: get resistance heater failed.\n");
             (void)bme680_deinit(&gs_handle); 
             
             return 1;
         }
-        bme680_interface_debug_print("bme680: check resistance heat %s.\n", reg == reg_check ? "ok" : "error");
+        bme680_interface_debug_print("bme680: check resistance heater %s.\n", reg == reg_check ? "ok" : "error");
     }
     
     /* bme680_set_gas_wait/bme680_get_gas_wait test */
@@ -1285,14 +1285,14 @@ uint8_t bme680_register_test(bme680_interface_t interface, bme680_address_t addr
         bme680_interface_debug_print("bme680: check gas wait %s.\n", reg == reg_check ? "ok" : "error");
     }
     
-    /* bme680_resistance_heat_convert_to_register test */
-    bme680_interface_debug_print("bme680: bme680_resistance_heat_convert_to_register test.\n");
+    /* bme680_resistance_heater_convert_to_register test */
+    bme680_interface_debug_print("bme680: bme680_resistance_heater_convert_to_register test.\n");
     
     degree_celsius = (float)(rand() % 30000) / 100;
-    res = bme680_resistance_heat_convert_to_register(&gs_handle, degree_celsius, &reg);
+    res = bme680_resistance_heater_convert_to_register(&gs_handle, degree_celsius, &reg);
     if (res != 0)
     {
-        bme680_interface_debug_print("bme680: resistance heat convert to register failed.\n");
+        bme680_interface_debug_print("bme680: resistance heater convert to register failed.\n");
         (void)bme680_deinit(&gs_handle); 
         
         return 1;
@@ -1313,29 +1313,29 @@ uint8_t bme680_register_test(bme680_interface_t interface, bme680_address_t addr
     }
     bme680_interface_debug_print("bme680: %dms convert to register 0x%02X.\n", ms, reg);
     
-    /* bme680_idac_heat_convert_to_register/bme680_idac_heat_convert_to_data test */
-    bme680_interface_debug_print("bme680: bme680_idac_heat_convert_to_register/bme680_idac_heat_convert_to_data test.\n");
+    /* bme680_idac_heater_convert_to_register/bme680_idac_heater_convert_to_data test */
+    bme680_interface_debug_print("bme680: bme680_idac_heater_convert_to_register/bme680_idac_heater_convert_to_data test.\n");
     
     ma = (float)(rand() % 100) / 10.0f;
-    bme680_interface_debug_print("bme680: idac heat ma before is %0.2fmA.\n", ma);
-    res = bme680_idac_heat_convert_to_register(&gs_handle, ma, &reg);
+    bme680_interface_debug_print("bme680: idac heater ma before is %0.2fmA.\n", ma);
+    res = bme680_idac_heater_convert_to_register(&gs_handle, ma, &reg);
     if (res != 0)
     {
-        bme680_interface_debug_print("bme680: idac heat convert to register failed.\n");
+        bme680_interface_debug_print("bme680: idac heater convert to register failed.\n");
         (void)bme680_deinit(&gs_handle); 
         
         return 1;
     }
-    bme680_interface_debug_print("bme680: idac heat reg is 0x%02X.\n", reg);
-    res = bme680_idac_heat_convert_to_data(&gs_handle, reg, &ma_check);
+    bme680_interface_debug_print("bme680: idac heater reg is 0x%02X.\n", reg);
+    res = bme680_idac_heater_convert_to_data(&gs_handle, reg, &ma_check);
     if (res != 0)
     {
-        bme680_interface_debug_print("bme680: idac heat convert to data failed.\n");
+        bme680_interface_debug_print("bme680: idac heater convert to data failed.\n");
         (void)bme680_deinit(&gs_handle); 
         
         return 1;
     }
-    bme680_interface_debug_print("bme680: idac heat ma after is %0.2fmA.\n", ma_check);
+    bme680_interface_debug_print("bme680: idac heater ma after is %0.2fmA.\n", ma_check);
     
     /* bme680_soft_reset test */
     bme680_interface_debug_print("bme680: bme680_soft_reset test.\n");

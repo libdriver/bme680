@@ -79,7 +79,6 @@ uint8_t bme680_gas_deinit(void);
 
 /**
  * @brief      gas example read
- * @param[in]  idac_ma input ma
  * @param[in]  degree_celsius input degree celsius
  * @param[in]  gas_wait_ms gas wait ms
  * @param[in]  index convert index
@@ -92,7 +91,7 @@ uint8_t bme680_gas_deinit(void);
  *             - 1 read failed
  * @note       none
  */
-uint8_t bme680_gas_read(float idac_ma, float degree_celsius, uint16_t gas_wait_ms, uint8_t index,
+uint8_t bme680_gas_read(float degree_celsius, uint16_t gas_wait_ms, uint8_t index,
                         float *temperature, float *pressure, float *humidity_percentage, float *ohms);
 
 /**

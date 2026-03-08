@@ -141,8 +141,8 @@ uint8_t bme680_basic_init(bme680_interface_t interface, bme680_address_t addr_pi
         return 1;
     }
     
-    /* enable heat off */
-    res = bme680_set_heat_off(&gs_handle, BME680_BOOL_TRUE);
+    /* enable heater off */
+    res = bme680_set_heater_off(&gs_handle, BME680_BOOL_TRUE);
     if (res != 0)
     {
         bme680_interface_debug_print("bme680: set heat off failed.\n");
@@ -210,8 +210,8 @@ uint8_t bme680_basic_read(float *temperature, float *pressure, float *humidity_p
  */
 uint8_t bme680_basic_deinit(void)
 {
-    /* enable heat off */
-    if (bme680_set_heat_off(&gs_handle, BME680_BOOL_TRUE) != 0)
+    /* enable heater off */
+    if (bme680_set_heater_off(&gs_handle, BME680_BOOL_TRUE) != 0)
     {
         return 1;
     }

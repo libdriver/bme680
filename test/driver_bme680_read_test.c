@@ -192,7 +192,7 @@ uint8_t bme680_read_test(bme680_interface_t interface, bme680_address_t addr_pin
     }
     
     /* 5.0mA */
-    res = bme680_idac_heat_convert_to_register(&gs_handle, 5.0f, &reg);
+    res = bme680_idac_heater_convert_to_register(&gs_handle, 5.0f, &reg);
     if (res != 0)
     {
         bme680_interface_debug_print("bme680: idac heat convert to register failed.\n");
@@ -201,8 +201,8 @@ uint8_t bme680_read_test(bme680_interface_t interface, bme680_address_t addr_pin
         return 1;
     }
     
-    /* set idac heat */
-    res = bme680_set_idac_heat(&gs_handle, index, reg);
+    /* set idac heater */
+    res = bme680_set_idac_heater(&gs_handle, index, reg);
     if (res != 0)
     {
         bme680_interface_debug_print("bme680: set idac heat failed.\n");
@@ -212,7 +212,7 @@ uint8_t bme680_read_test(bme680_interface_t interface, bme680_address_t addr_pin
     }
     
     /* 200C */
-    res = bme680_resistance_heat_convert_to_register(&gs_handle, 200.0f, &reg);
+    res = bme680_resistance_heater_convert_to_register(&gs_handle, 200.0f, &reg);
     if (res != 0)
     {
         bme680_interface_debug_print("bme680: resistance heat convert to register failed.\n");
@@ -221,8 +221,8 @@ uint8_t bme680_read_test(bme680_interface_t interface, bme680_address_t addr_pin
         return 1;
     }
     
-    /* set resistance heat */
-    res = bme680_set_resistance_heat(&gs_handle, index, reg);
+    /* set resistance heater */
+    res = bme680_set_resistance_heater(&gs_handle, index, reg);
     if (res != 0)
     {
         bme680_interface_debug_print("bme680: set resistance heat failed.\n");
@@ -259,8 +259,8 @@ uint8_t bme680_read_test(bme680_interface_t interface, bme680_address_t addr_pin
         return 1;
     }
     
-    /* disable heat off */
-    res = bme680_set_heat_off(&gs_handle, BME680_BOOL_FALSE);
+    /* disable heater off */
+    res = bme680_set_heater_off(&gs_handle, BME680_BOOL_FALSE);
     if (res != 0)
     {
         bme680_interface_debug_print("bme680: set heat off failed.\n");
@@ -311,7 +311,7 @@ uint8_t bme680_read_test(bme680_interface_t interface, bme680_address_t addr_pin
     
     /* finish read test */
     bme680_interface_debug_print("bme680: finish read test.\n");
-    (void)bme680_set_heat_off(&gs_handle, BME680_BOOL_TRUE);
+    (void)bme680_set_heater_off(&gs_handle, BME680_BOOL_TRUE);
     (void)bme680_deinit(&gs_handle); 
     
     return 0;

@@ -277,9 +277,9 @@
 <!-- Node16 -->
 <g id="Node000016" class="node">
 <title>Node16</title>
-<g id="a_Node000016"><a xlink:href="group__bme680__base__driver.html#ga2171cbc8a6971152543af66d78f93378" target="_top" xlink:title="enable or disable heat off">
-<polygon fill="white" stroke="#666666" points="257.75,-322 148.75,-322 148.75,-302 257.75,-302 257.75,-322"/>
-<text xml:space="preserve" text-anchor="middle" x="203.25" y="-308.5" font-family="Helvetica,sans-Serif" font-size="10.00">bme680_set_heat_off</text>
+<g id="a_Node000016"><a xlink:href="group__bme680__base__driver.html#ga5d69409c0d06693dc3ab13abba84d903" target="_top" xlink:title="enable or disable heater off">
+<polygon fill="white" stroke="#666666" points="261.88,-322 144.62,-322 144.62,-302 261.88,-302 261.88,-322"/>
+<text xml:space="preserve" text-anchor="middle" x="203.25" y="-308.5" font-family="Helvetica,sans-Serif" font-size="10.00">bme680_set_heater_off</text>
 </a>
 </g>
 </g>

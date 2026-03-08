@@ -67,15 +67,13 @@ uint8_t bme680(uint8_t argc, char **argv)
         {"interface", required_argument, NULL, 2},
         {"times", required_argument, NULL, 3},
         {"index", required_argument, NULL, 4},
-        {"idac", required_argument, NULL, 5},
-        {"degree", required_argument, NULL, 6},
-        {"wait", required_argument, NULL, 7},
+        {"degree", required_argument, NULL, 5},
+        {"wait", required_argument, NULL, 6},
         {NULL, 0, NULL, 0},
     };
     char type[33] = "unknown";
     uint8_t index = 0;
     uint32_t times = 3;
-    float idac_ma = 5.0f;
     float degree_celsius = 200.0f;
     uint16_t gas_wait_ms = 150;
     bme680_interface_t interface = BME680_INTERFACE_IIC;
@@ -206,17 +204,8 @@ uint8_t bme680(uint8_t argc, char **argv)
                 break;
             }
             
-            /* idac */
-            case 5 :
-            {
-                /* set idac */
-                idac_ma = (float)atof(optarg);
-                
-                break;
-            }
-            
             /* degree */
-            case 6 :
+            case 5 :
             {
                 /* set degree */
                 degree_celsius = (float)atof(optarg);
@@ -225,7 +214,7 @@ uint8_t bme680(uint8_t argc, char **argv)
             }
             
             /* wait */
-            case 7 :
+            case 6 :
             {
                 /* set wait */
                 gas_wait_ms = (uint16_t)atol(optarg);
@@ -339,7 +328,7 @@ uint8_t bme680(uint8_t argc, char **argv)
             bme680_interface_delay_ms(1000);
             
             /* read data */
-            res = bme680_gas_read(idac_ma, degree_celsius, gas_wait_ms, index,
+            res = bme680_gas_read(degree_celsius, gas_wait_ms, index,
                                  (float *)&temperature_c, (float *)&pressure_pa, (float *)&humidity_percentage, (float *)&ohms);
             if (res != 0)
             {
@@ -354,7 +343,6 @@ uint8_t bme680(uint8_t argc, char **argv)
             bme680_interface_debug_print("bme680: pressure is %0.2fPa.\n", pressure_pa);
             bme680_interface_debug_print("bme680: humidity is %0.2f%%.\n", humidity_percentage);
             bme680_interface_debug_print("bme680: gas index is %d.\n", index);
-            bme680_interface_debug_print("bme680: idac is %0.2fmA.\n", idac_ma);
             bme680_interface_debug_print("bme680: degree celsius is %0.1fC.\n", degree_celsius);
             bme680_interface_debug_print("bme680: gas wait is %d ms.\n", gas_wait_ms);
             bme680_interface_debug_print("bme680: gas resistance is %0.2fohms.\n", ohms);
@@ -375,7 +363,7 @@ uint8_t bme680(uint8_t argc, char **argv)
         bme680_interface_debug_print("  bme680 (-t reg | --test=reg) [--addr=<0 | 1>] [--interface=<iic | spi>]\n");
         bme680_interface_debug_print("  bme680 (-t read | --test=read) [--addr=<0 | 1>] [--interface=<iic | spi>] [--index=<index>] [--times=<num>]\n");
         bme680_interface_debug_print("  bme680 (-e read | --example=read) [--addr=<0 | 1>] [--interface=<iic | spi>] [--times=<num>]\n");
-        bme680_interface_debug_print("  bme680 (-e gas | --example=gas) [--addr=<0 | 1>] [--interface=<iic | spi>] [--index=<index>] [--idac=<ma>]\n");
+        bme680_interface_debug_print("  bme680 (-e gas | --example=gas) [--addr=<0 | 1>] [--interface=<iic | spi>] [--index=<index>]\n");
         bme680_interface_debug_print("         [--degree=<degree>] [--wait=<ms>] [--times=<num>]\n");
         bme680_interface_debug_print("\n");
         bme680_interface_debug_print("Options:\n");
@@ -385,7 +373,6 @@ uint8_t bme680(uint8_t argc, char **argv)
         bme680_interface_debug_print("                                     Run the driver example.\n");
         bme680_interface_debug_print("  -h, --help                         Show the help.\n");
         bme680_interface_debug_print("  -i, --information                  Show the chip information.\n");
-        bme680_interface_debug_print("      --idac=<ma>                    Set the heater idac current in mA.([default: 5.0])\n");
         bme680_interface_debug_print("      --index=<index>                Set the heater index and it range is 0 - 9.([default: 0])\n");
         bme680_interface_debug_print("      --interface=<iic | spi>        Set the chip interface.([default: iic])\n");
         bme680_interface_debug_print("  -p, --port                         Display the pin connections of the current board.\n");

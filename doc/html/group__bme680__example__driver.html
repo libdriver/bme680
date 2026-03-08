@@ -130,8 +130,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga7291800ebeaaa8f691df0ed26ae3d7ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">gas example init  <br /></td></tr>
 <tr class="memitem:ga07e098d471f1683e37fd4b07e8aeaf27" id="r_ga07e098d471f1683e37fd4b07e8aeaf27"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga07e098d471f1683e37fd4b07e8aeaf27">bme680_gas_deinit</a> (void)</td></tr>
 <tr class="memdesc:ga07e098d471f1683e37fd4b07e8aeaf27"><td class="mdescLeft">&#160;</td><td class="mdescRight">gas example deinit  <br /></td></tr>
-<tr class="memitem:ga448f47b640fafe6c5ad1f3cd792b7cde" id="r_ga448f47b640fafe6c5ad1f3cd792b7cde"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga448f47b640fafe6c5ad1f3cd792b7cde">bme680_gas_read</a> (float idac_ma, float degree_celsius, uint16_t gas_wait_ms, uint8_t index, float *temperature, float *pressure, float *humidity_percentage, float *ohms)</td></tr>
-<tr class="memdesc:ga448f47b640fafe6c5ad1f3cd792b7cde"><td class="mdescLeft">&#160;</td><td class="mdescRight">gas example read  <br /></td></tr>
+<tr class="memitem:ga1f60db1d5e081ff33d5443ca77d24a73" id="r_ga1f60db1d5e081ff33d5443ca77d24a73"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ga1f60db1d5e081ff33d5443ca77d24a73">bme680_gas_read</a> (float degree_celsius, uint16_t gas_wait_ms, uint8_t index, float *temperature, float *pressure, float *humidity_percentage, float *ohms)</td></tr>
+<tr class="memdesc:ga1f60db1d5e081ff33d5443ca77d24a73"><td class="mdescLeft">&#160;</td><td class="mdescRight">gas example read  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <p>bme680 example driver modules </p>
@@ -338,7 +338,7 @@ Functions</h2></td></tr>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="group__bme680__example__driver_gaf9a15b8803e91a851c4bc05ae58294b7_cgraph.svg" width="348" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="group__bme680__example__driver_gaf9a15b8803e91a851c4bc05ae58294b7_cgraph.svg" width="359" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -458,7 +458,7 @@ Here is the call graph for this function:</div>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="driver__bme680__gas_8c_source.html#l00278">278</a> of file <a class="el" href="driver__bme680__gas_8c_source.html">driver_bme680_gas.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__bme680__gas_8c_source.html#l00263">263</a> of file <a class="el" href="driver__bme680__gas_8c_source.html">driver_bme680_gas.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -510,8 +510,8 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="ga448f47b640fafe6c5ad1f3cd792b7cde" name="ga448f47b640fafe6c5ad1f3cd792b7cde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga448f47b640fafe6c5ad1f3cd792b7cde">&#9670;&#160;</a></span>bme680_gas_read()</h2>
+<a id="ga1f60db1d5e081ff33d5443ca77d24a73" name="ga1f60db1d5e081ff33d5443ca77d24a73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1f60db1d5e081ff33d5443ca77d24a73">&#9670;&#160;</a></span>bme680_gas_read()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -519,11 +519,6 @@ Here is the call graph for this function:</div>
         <tr>
           <td class="memname">uint8_t bme680_gas_read </td>
           <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>idac_ma</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>degree_celsius</em></span>, </td>
         </tr>
         <tr>
@@ -562,7 +557,6 @@ Here is the call graph for this function:</div>
 <p>gas example read </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">idac_ma</td><td>input ma </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">degree_celsius</td><td>input degree celsius </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">gas_wait_ms</td><td>gas wait ms </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">index</td><td>convert index </td></tr>
@@ -580,11 +574,11 @@ Here is the call graph for this function:</div>
 </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>none </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="driver__bme680__gas_8c_source.html#l00192">192</a> of file <a class="el" href="driver__bme680__gas_8c_source.html">driver_bme680_gas.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="driver__bme680__gas_8c_source.html#l00191">191</a> of file <a class="el" href="driver__bme680__gas_8c_source.html">driver_bme680_gas.c</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="group__bme680__example__driver_ga448f47b640fafe6c5ad1f3cd792b7cde_cgraph.svg" width="378" height="456"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="group__bme680__example__driver_ga1f60db1d5e081ff33d5443ca77d24a73_cgraph.svg" width="364" height="355"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

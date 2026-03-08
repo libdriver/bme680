@@ -78,10 +78,10 @@ We use '\n' to wrap lines.If your serial port assistant displays exceptions (e.g
    bme680 (-e read | --example=read) [--addr=<0 | 1>] [--interface=<iic | spi>] [--times=<num>]
    ```
 
-7. Run bme680 gas function, num means the read times, index is the gas index, ma the is idac ma, degree is the set degree, wait is the wait time in ms.
+7. Run bme680 gas function, num means the read times, index is the gas index, degree is the set degree, wait is the wait time in ms.
 
    ```shell
-   bme680 (-e gas | --example=gas) [--addr=<0 | 1>] [--interface=<iic | spi>] [--index=<index>] [--idac=<ma>] [--degree=<degree>] [--wait=<ms>] [--times=<num>]
+   bme680 (-e gas | --example=gas) [--addr=<0 | 1>] [--interface=<iic | spi>] [--index=<index>] [--degree=<degree>] [--wait=<ms>] [--times=<num>]
    ```
 
 #### 3.2 Command Example
@@ -217,11 +217,11 @@ bme680: bme680_get_gas_valid_status test.
 bme680: gas valid status is false.
 bme680: bme680_get_heater_stability_status test.
 bme680: heater stability status is false.
-bme680: bme680_set_heat_off/bme680_get_heat_off test.
-bme680: disable heat off.
-bme680: check heat off ok.
-bme680: enable heat off.
-bme680: check heat off ok.
+bme680: bme680_set_heater_off/bme680_get_heater_off test.
+bme680: disable heater off.
+bme680: check heater off ok.
+bme680: enable heater off.
+bme680: check heater off ok.
 bme680: bme680_set_run_gas/bme680_get_run_gas test.
 bme680: enable run gas.
 bme680: check run gas ok.
@@ -248,48 +248,48 @@ bme680: set convert index 8.
 bme680: check convert index ok.
 bme680: set convert index 9.
 bme680: check convert index ok.
-bme680: bme680_set_idac_heat/bme680_get_idac_heat test.
-bme680: set index 0 idac heat 0xEE.
-bme680: check idac heat ok.
-bme680: set index 1 idac heat 0xDE.
-bme680: check idac heat ok.
-bme680: set index 2 idac heat 0xB8.
-bme680: check idac heat ok.
-bme680: set index 3 idac heat 0x5F.
-bme680: check idac heat ok.
-bme680: set index 4 idac heat 0xF3.
-bme680: check idac heat ok.
-bme680: set index 5 idac heat 0x65.
-bme680: check idac heat ok.
-bme680: set index 6 idac heat 0x3C.
-bme680: check idac heat ok.
-bme680: set index 7 idac heat 0x0C.
-bme680: check idac heat ok.
-bme680: set index 8 idac heat 0x84.
-bme680: check idac heat ok.
-bme680: set index 9 idac heat 0xB8.
-bme680: check idac heat ok.
-bme680: bme680_set_resistance_heat/bme680_get_resistance_heat test.
-bme680: set index 0 resistance heat 0xD5.
-bme680: check resistance heat ok.
-bme680: set index 1 resistance heat 0x16.
-bme680: check resistance heat ok.
-bme680: set index 2 resistance heat 0x09.
-bme680: check resistance heat ok.
-bme680: set index 3 resistance heat 0x03.
-bme680: check resistance heat ok.
-bme680: set index 4 resistance heat 0xED.
-bme680: check resistance heat ok.
-bme680: set index 5 resistance heat 0xDF.
-bme680: check resistance heat ok.
-bme680: set index 6 resistance heat 0xBF.
-bme680: check resistance heat ok.
-bme680: set index 7 resistance heat 0xFB.
-bme680: check resistance heat ok.
-bme680: set index 8 resistance heat 0x90.
-bme680: check resistance heat ok.
-bme680: set index 9 resistance heat 0xB2.
-bme680: check resistance heat ok.
+bme680: bme680_set_idac_heater/bme680_get_idac_heater test.
+bme680: set index 0 idac heater 0xEE.
+bme680: check idac heater ok.
+bme680: set index 1 idac heater 0xDE.
+bme680: check idac heater ok.
+bme680: set index 2 idac heater 0xB8.
+bme680: check idac heater ok.
+bme680: set index 3 idac heater 0x5F.
+bme680: check idac heater ok.
+bme680: set index 4 idac heater 0xF3.
+bme680: check idac heater ok.
+bme680: set index 5 idac heater 0x65.
+bme680: check idac heater ok.
+bme680: set index 6 idac heater 0x3C.
+bme680: check idac heater ok.
+bme680: set index 7 idac heater 0x0C.
+bme680: check idac heater ok.
+bme680: set index 8 idac heater 0x84.
+bme680: check idac heater ok.
+bme680: set index 9 idac heater 0xB8.
+bme680: check idac heater ok.
+bme680: bme680_set_resistance_heater/bme680_get_resistance_heater test.
+bme680: set index 0 resistance heater 0xD5.
+bme680: check resistance heater ok.
+bme680: set index 1 resistance heater 0x16.
+bme680: check resistance heater ok.
+bme680: set index 2 resistance heater 0x09.
+bme680: check resistance heater ok.
+bme680: set index 3 resistance heater 0x03.
+bme680: check resistance heater ok.
+bme680: set index 4 resistance heater 0xED.
+bme680: check resistance heater ok.
+bme680: set index 5 resistance heater 0xDF.
+bme680: check resistance heater ok.
+bme680: set index 6 resistance heater 0xBF.
+bme680: check resistance heater ok.
+bme680: set index 7 resistance heater 0xFB.
+bme680: check resistance heater ok.
+bme680: set index 8 resistance heater 0x90.
+bme680: check resistance heater ok.
+bme680: set index 9 resistance heater 0xB2.
+bme680: check resistance heater ok.
 bme680: bme680_set_gas_wait/bme680_get_gas_wait test.
 bme680: set index 0 gas wait 0x1E.
 bme680: check gas wait ok.
@@ -311,14 +311,14 @@ bme680: set index 8 gas wait 0x2B.
 bme680: check gas wait ok.
 bme680: set index 9 gas wait 0xCA.
 bme680: check gas wait ok.
-bme680: bme680_resistance_heat_convert_to_register test.
-bme680: 167.35C convert to register 0x45.
+bme680: bme680_resistance_heater_convert_to_register test.
+bme680: 167.35C convert to register 0x47.
 bme680: bme680_gas_wait_convert_to_register test.
 bme680: 118ms convert to register 0x5D.
-bme680: bme680_idac_heat_convert_to_register/bme680_idac_heat_convert_to_data test.
-bme680: idac heat ma before is 4.10mA.
-bme680: idac heat reg is 0x3E.
-bme680: idac heat ma after is 4.00mA.
+bme680: bme680_idac_heater_convert_to_register/bme680_idac_heater_convert_to_data test.
+bme680: idac heater ma before is 4.10mA.
+bme680: idac heater reg is 0x3E.
+bme680: idac heater ma after is 4.00mA.
 bme680: bme680_soft_reset test.
 bme680: check soft reset ok.
 bme680: finish register test.
@@ -337,21 +337,21 @@ bme680: max current is 0.85mA.
 bme680: max temperature is 85.0C.
 bme680: min temperature is -40.0C.
 bme680: start read test.
-bme680: temperature is 27.05C.
-bme680: pressure is 100117.32pa.
-bme680: humidity is 63.56%.
+bme680: temperature is 28.92C.
+bme680: pressure is 100012.87pa.
+bme680: humidity is 57.52%.
 bme680: gas index is 0.
-bme680: gas resistance is 28742.22ohms.
-bme680: temperature is 27.06C.
-bme680: pressure is 100117.18pa.
-bme680: humidity is 63.41%.
+bme680: gas resistance is 49387.66ohms.
+bme680: temperature is 28.93C.
+bme680: pressure is 100012.99pa.
+bme680: humidity is 57.39%.
 bme680: gas index is 0.
-bme680: gas resistance is 21955.69ohms.
-bme680: temperature is 27.07C.
-bme680: pressure is 100117.12pa.
-bme680: humidity is 63.20%.
+bme680: gas resistance is 34100.94ohms.
+bme680: temperature is 28.94C.
+bme680: pressure is 100013.12pa.
+bme680: humidity is 57.24%.
 bme680: gas index is 0.
-bme680: gas resistance is 20062.96ohms.
+bme680: gas resistance is 29746.65ohms.
 bme680: finish read test.
 ```
 
@@ -359,49 +359,46 @@ bme680: finish read test.
 bme680 -e read --addr=0 --interface=iic --index=0 --times=3
 
 bme680: 1/3.
-bme680: temperature is 27.07C.
-bme680: pressure is 100119.45Pa.
-bme680: humidity is 63.76%.
+bme680: temperature is 28.53C.
+bme680: pressure is 100015.96Pa.
+bme680: humidity is 58.21%.
 bme680: 2/3.
-bme680: temperature is 27.07C.
-bme680: pressure is 100119.38Pa.
-bme680: humidity is 63.76%.
+bme680: temperature is 28.53C.
+bme680: pressure is 100015.91Pa.
+bme680: humidity is 58.22%.
 bme680: 3/3.
-bme680: temperature is 27.07C.
-bme680: pressure is 100119.41Pa.
-bme680: humidity is 63.75%.
+bme680: temperature is 28.53C.
+bme680: pressure is 100015.91Pa.
+bme680: humidity is 58.24%.
 ```
 
 ```shell
-bme680 -e gas --addr=0 --interface=iic --index=0 --idac=5.0 --degree=200.0 --wait=150 --times=3
+bme680 -e gas --addr=0 --interface=iic --index=0 --degree=200.0 --wait=150 --times=3
 
 bme680: 1/3.
-bme680: temperature is 27.06C.
-bme680: pressure is 100117.84Pa.
-bme680: humidity is 63.52%.
+bme680: temperature is 28.31C.
+bme680: pressure is 100015.09Pa.
+bme680: humidity is 58.73%.
 bme680: gas index is 0.
-bme680: idac is 5.00mA.
 bme680: degree celsius is 200.0C.
 bme680: gas wait is 150 ms.
-bme680: gas resistance is 20209.67ohms.
+bme680: gas resistance is 28779.59ohms.
 bme680: 2/3.
-bme680: temperature is 27.07C.
-bme680: pressure is 100117.73Pa.
-bme680: humidity is 63.38%.
+bme680: temperature is 28.31C.
+bme680: pressure is 100015.09Pa.
+bme680: humidity is 58.63%.
 bme680: gas index is 0.
-bme680: idac is 5.00mA.
 bme680: degree celsius is 200.0C.
 bme680: gas wait is 150 ms.
-bme680: gas resistance is 19583.15ohms.
+bme680: gas resistance is 27205.29ohms.
 bme680: 3/3.
-bme680: temperature is 27.08C.
-bme680: pressure is 100117.81Pa.
-bme680: humidity is 63.16%.
+bme680: temperature is 28.32C.
+bme680: pressure is 100015.17Pa.
+bme680: humidity is 58.47%.
 bme680: gas index is 0.
-bme680: idac is 5.00mA.
 bme680: degree celsius is 200.0C.
 bme680: gas wait is 150 ms.
-bme680: gas resistance is 19059.81ohms.
+bme680: gas resistance is 26409.91ohms.
 ```
 
 ```shell
@@ -414,7 +411,7 @@ Usage:
   bme680 (-t reg | --test=reg) [--addr=<0 | 1>] [--interface=<iic | spi>]
   bme680 (-t read | --test=read) [--addr=<0 | 1>] [--interface=<iic | spi>] [--index=<index>] [--times=<num>]
   bme680 (-e read | --example=read) [--addr=<0 | 1>] [--interface=<iic | spi>] [--times=<num>]
-  bme680 (-e gas | --example=gas) [--addr=<0 | 1>] [--interface=<iic | spi>] [--index=<index>] [--idac=<ma>]
+  bme680 (-e gas | --example=gas) [--addr=<0 | 1>] [--interface=<iic | spi>] [--index=<index>]
          [--degree=<degree>] [--wait=<ms>] [--times=<num>]
 
 Options:
@@ -424,7 +421,6 @@ Options:
                                      Run the driver example.
   -h, --help                         Show the help.
   -i, --information                  Show the chip information.
-      --idac=<ma>                    Set the heater idac current in mA.([default: 5.0])
       --index=<index>                Set the heater index and it range is 0 - 9.([default: 0])
       --interface=<iic | spi>        Set the chip interface.([default: iic])
   -p, --port                         Display the pin connections of the current board.

@@ -141,8 +141,8 @@ uint8_t bme680_gas_init(bme680_interface_t interface, bme680_address_t addr_pin)
         return 1;
     }
     
-    /* disable heat off */
-    res = bme680_set_heat_off(&gs_handle, BME680_BOOL_FALSE);
+    /* disable heater off */
+    res = bme680_set_heater_off(&gs_handle, BME680_BOOL_FALSE);
     if (res != 0)
     {
         bme680_interface_debug_print("bme680: set heat off failed.\n");
@@ -176,7 +176,6 @@ uint8_t bme680_gas_init(bme680_interface_t interface, bme680_address_t addr_pin)
 
 /**
  * @brief      gas example read
- * @param[in]  idac_ma input ma
  * @param[in]  degree_celsius input degree celsius
  * @param[in]  gas_wait_ms gas wait ms
  * @param[in]  index convert index
@@ -189,7 +188,7 @@ uint8_t bme680_gas_init(bme680_interface_t interface, bme680_address_t addr_pin)
  *             - 1 read failed
  * @note       none
  */
-uint8_t bme680_gas_read(float idac_ma, float degree_celsius, uint16_t gas_wait_ms, uint8_t index,
+uint8_t bme680_gas_read(float degree_celsius, uint16_t gas_wait_ms, uint8_t index,
                         float *temperature, float *pressure, float *humidity_percentage, float *ohms)
 {
     uint8_t res;
@@ -201,29 +200,15 @@ uint8_t bme680_gas_read(float idac_ma, float degree_celsius, uint16_t gas_wait_m
     uint8_t adc_range;
     uint8_t index_check;
     
-    /* set idac ma */
-    res = bme680_idac_heat_convert_to_register(&gs_handle, idac_ma, &reg);
-    if (res != 0)
-    {
-        return 1;
-    }
-    
-    /* set idac heat */
-    res = bme680_set_idac_heat(&gs_handle, index, reg);
-    if (res != 0)
-    {
-        return 1;
-    }
-    
     /* set degree celsius */
-    res = bme680_resistance_heat_convert_to_register(&gs_handle, degree_celsius, &reg);
+    res = bme680_resistance_heater_convert_to_register(&gs_handle, degree_celsius, &reg);
     if (res != 0)
     {
         return 1;
     }
     
-    /* set resistance heat */
-    res = bme680_set_resistance_heat(&gs_handle, index, reg);
+    /* set resistance heater */
+    res = bme680_set_resistance_heater(&gs_handle, index, reg);
     if (res != 0)
     {
         return 1;

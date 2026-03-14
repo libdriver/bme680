@@ -1,3 +1,9 @@
+## 1.0.7 (2026-03-15)
+
+## Bug Fixes
+
+- fix data convert bugs
+
 ## 1.0.6 (2026-03-12)
 
 ## Bug Fixes

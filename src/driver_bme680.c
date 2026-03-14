@@ -2531,9 +2531,9 @@ uint8_t bme680_read_pressure(bme680_handle_t *handle, uint32_t *pressure_raw, fl
 
         return 4;                                                                          /* return error */
     }
-    *pressure_raw = ((((int32_t)(buf[0])) << 12) |
-                    (((int32_t)(buf[1])) << 4) |
-                    (((int32_t)(buf[2])) >> 4));                                           /* set pressure raw */
+    *pressure_raw = ((((uint32_t)(buf[0])) << 12) |
+                    (((uint32_t)(buf[1])) << 4) |
+                    (((uint32_t)(buf[2])) >> 4));                                          /* set pressure raw */
     res = a_bme680_compensate_pressure(handle, *pressure_raw, pressure_pa);                /* compensate pressure */
     if (res != 0)
     {
@@ -2818,9 +2818,9 @@ uint8_t bme680_read_temperature_pressure_humidity(bme680_handle_t *handle, uint3
 
         return 4;                                                                          /* return error */
     }
-    *pressure_raw = ((((int32_t)(buf[0])) << 12) |
-                    (((int32_t)(buf[1])) << 4) |
-                    (((int32_t)(buf[2])) >> 4));                                           /* set pressure raw */
+    *pressure_raw = ((((uint32_t)(buf[0])) << 12) |
+                    (((uint32_t)(buf[1])) << 4) |
+                    (((uint32_t)(buf[2])) >> 4));                                          /* set pressure raw */
     res = a_bme680_compensate_pressure(handle, *pressure_raw, pressure_pa);                /* compensate pressure */
     if (res != 0)
     {
@@ -2936,9 +2936,9 @@ uint8_t bme680_read(bme680_handle_t *handle, uint32_t *temperature_raw, float *t
 
         return 4;                                                                          /* return error */
     }
-    *pressure_raw = ((((int32_t)(buf[0])) << 12) |
-                    (((int32_t)(buf[1])) << 4) |
-                    (((int32_t)(buf[2])) >> 4));                                           /* set pressure raw */
+    *pressure_raw = ((((uint32_t)(buf[0])) << 12) |
+                    (((uint32_t)(buf[1])) << 4) |
+                    (((uint32_t)(buf[2])) >> 4));                                          /* set pressure raw */
     res = a_bme680_compensate_pressure(handle, *pressure_raw, pressure_pa);                /* compensate pressure */
     if (res != 0)
     {

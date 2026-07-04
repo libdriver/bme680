@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"pages.html":[],
+"structbme680__handle__s.html":[0,0,1,0],
 "structbme680__handle__s.html#a00209e629162307269baa592e51144ac":[0,0,1,0,7],
 "structbme680__handle__s.html#a0416df27f022b8c8a8517747a7aee33a":[0,0,1,0,25],
 "structbme680__handle__s.html#a0bc2a31e5e092c869b552cdac0385b75":[0,0,1,0,18],

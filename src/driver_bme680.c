@@ -848,14 +848,28 @@ uint8_t bme680_init(bme680_handle_t *handle)
     if (a_bme680_iic_spi_read(handle, BME680_REG_ID, (uint8_t *)&id, 1) != 0)        /* read chip id */
     {
         handle->debug_print("bme680: read id failed.\n");                            /* read id failed */
-        (void)handle->iic_deinit();                                                  /* iic deinit */
-
+        if (handle->iic_spi == BME680_INTERFACE_IIC)                                 /* iic interface */
+        {
+            (void)handle->iic_deinit();                                              /* iic deinit */
+        }
+        else                                                                         /* spi interface */
+        {
+            (void)handle->spi_deinit();                                              /* spi deinit */
+        }
+        
         return 4;                                                                    /* return error */
     }
     if (id != 0x61)                                                                  /* check id */
     {
         handle->debug_print("bme680: id is error.\n");                               /* id is error */
-        (void)handle->iic_deinit();                                                  /* iic deinit */
+        if (handle->iic_spi == BME680_INTERFACE_IIC)                                 /* iic interface */
+        {
+            (void)handle->iic_deinit();                                              /* iic deinit */
+        }
+        else                                                                         /* spi interface */
+        {
+            (void)handle->spi_deinit();                                              /* spi deinit */
+        }
 
         return 4;                                                                    /* return error */
     }
@@ -863,14 +877,28 @@ uint8_t bme680_init(bme680_handle_t *handle)
     if (a_bme680_iic_spi_write(handle, BME680_REG_RESET, &reg, 1) != 0)              /* reset the chip */
     {
         handle->debug_print("bme680: reset failed.\n");                              /* reset failed */
-        (void)handle->iic_deinit();                                                  /* iic deinit */
+        if (handle->iic_spi == BME680_INTERFACE_IIC)                                 /* iic interface */
+        {
+            (void)handle->iic_deinit();                                              /* iic deinit */
+        }
+        else                                                                         /* spi interface */
+        {
+            (void)handle->spi_deinit();                                              /* spi deinit */
+        }
 
         return 5;                                                                    /* return error */
     }
     handle->delay_ms(5);                                                             /* delay 5ms */
     if (a_bme680_get_nvm_calibration(handle) != 0)                                   /* get nvm calibration */
     {
-        (void)handle->iic_deinit();                                                  /* iic deinit */
+        if (handle->iic_spi == BME680_INTERFACE_IIC)                                 /* iic interface */
+        {
+            (void)handle->iic_deinit();                                              /* iic deinit */
+        }
+        else                                                                         /* spi interface */
+        {
+            (void)handle->spi_deinit();                                              /* spi deinit */
+        }
 
         return 6;                                                                    /* return error */
     }
@@ -2992,6 +3020,58 @@ uint8_t bme680_read(bme680_handle_t *handle, uint32_t *temperature_raw, float *t
     *index = (prev & 0xF);                                                                 /* set index */
     
     return 0;                                                                              /* success return 0 */
+}
+
+/**
+ * @brief     set ambient temperature
+ * @param[in] *handle pointer to a bme680 handle structure
+ * @param[in] amb_temp_c ambient temperature in C
+ * @return    status code
+ *            - 0 success
+ *            - 2 handle is NULL
+ *            - 3 handle is not initialized
+ * @note      none
+ */
+uint8_t bme680_set_ambient_temperature(bme680_handle_t *handle, int8_t amb_temp_c)
+{
+    if (handle == NULL)                   /* check handle */
+    {
+        return 2;                         /* return error */
+    }
+    if (handle->inited != 1)              /* check handle initialization */
+    {
+        return 3;                         /* return error */
+    }
+    
+    handle->amb_temp = amb_temp_c;        /* set ambient temperature */
+    
+    return 0;                             /* success return 0 */
+}
+
+/**
+ * @brief      get ambient temperature
+ * @param[in]  *handle pointer to a bme680 handle structure
+ * @param[out] *amb_temp_c pointer to an ambient temperature buffer
+ * @return     status code
+ *             - 0 success
+ *             - 2 handle is NULL
+ *             - 3 handle is not initialized
+ * @note       none
+ */
+uint8_t bme680_get_ambient_temperature(bme680_handle_t *handle, int8_t *amb_temp_c)
+{
+    if (handle == NULL)                    /* check handle */
+    {
+        return 2;                          /* return error */
+    }
+    if (handle->inited != 1)               /* check handle initialization */
+    {
+        return 3;                          /* return error */
+    }
+    
+    *amb_temp_c = handle->amb_temp;        /* set ambient temperature */
+    
+    return 0;                              /* success return 0 */
 }
 
 /**

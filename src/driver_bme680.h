@@ -506,6 +506,30 @@ uint8_t bme680_read_humidity(bme680_handle_t *handle, uint32_t *humidity_raw, fl
 uint8_t bme680_read_gas_resistance(bme680_handle_t *handle, uint16_t *adc_raw, uint8_t *adc_range, float *ohms, uint8_t *index);
 
 /**
+ * @brief     set ambient temperature
+ * @param[in] *handle pointer to a bme680 handle structure
+ * @param[in] amb_temp_c ambient temperature in C
+ * @return    status code
+ *            - 0 success
+ *            - 2 handle is NULL
+ *            - 3 handle is not initialized
+ * @note      none
+ */
+uint8_t bme680_set_ambient_temperature(bme680_handle_t *handle, int8_t amb_temp_c);
+
+/**
+ * @brief      get ambient temperature
+ * @param[in]  *handle pointer to a bme680 handle structure
+ * @param[out] *amb_temp_c pointer to an ambient temperature buffer
+ * @return     status code
+ *             - 0 success
+ *             - 2 handle is NULL
+ *             - 3 handle is not initialized
+ * @note       none
+ */
+uint8_t bme680_get_ambient_temperature(bme680_handle_t *handle, int8_t *amb_temp_c);
+
+/**
  * @brief     soft reset
  * @param[in] *handle pointer to a bme680 handle structure
  * @return    status code

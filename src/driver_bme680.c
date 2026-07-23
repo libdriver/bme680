@@ -379,7 +379,7 @@ static uint8_t a_bme680_get_nvm_calibration(bme680_handle_t *handle)
 
         return 1;                                                                              /* return error */
     }
-    handle->par_h1 = (uint16_t)((uint16_t)buf[1] << 4 | buf[0] & 0xF);                         /* set h1 */
+    handle->par_h1 = (uint16_t)((uint16_t)buf[1] << 4 | (buf[0] & 0xF));                       /* set h1 */
     if (a_bme680_iic_spi_read(handle, BME680_REG_NVM_PAR_H2_H, (uint8_t *)buf, 2) != 0)        /* read h2 */
     {
         handle->debug_print("bme680: get calibration data failed.\n");                         /* get calibration data failed */

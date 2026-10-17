@@ -453,7 +453,7 @@ Functions</h2></td></tr>
 
 <p>bme680 oversampling enumeration definition </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaa8ff688e2602d8052f40aba672dae3adaf68f728057184ef2cdb42c9a8c33d95e" name="ggaa8ff688e2602d8052f40aba672dae3adaf68f728057184ef2cdb42c9a8c33d95e"></a>BME680_OVERSAMPLING_SKIP&#160;</td><td class="fielddoc"><p>oversampling x1 </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggaa8ff688e2602d8052f40aba672dae3adaf68f728057184ef2cdb42c9a8c33d95e" name="ggaa8ff688e2602d8052f40aba672dae3adaf68f728057184ef2cdb42c9a8c33d95e"></a>BME680_OVERSAMPLING_SKIP&#160;</td><td class="fielddoc"><p>skip </p>
 </td></tr>
 <tr><td class="fieldname"><a id="ggaa8ff688e2602d8052f40aba672dae3ada15fca491b646056ee3600c4860027b9d" name="ggaa8ff688e2602d8052f40aba672dae3ada15fca491b646056ee3600c4860027b9d"></a>BME680_OVERSAMPLING_x1&#160;</td><td class="fielddoc"><p>oversampling x1 </p>
 </td></tr>
@@ -567,7 +567,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>status code<ul>
 <li>0 success</li>
-<li>1 ms &gt;= 0x0FC0</li>
+<li>1 ms &gt; 0x0FC0</li>
 <li>2 handle is NULL</li>
 <li>3 handle is not initialized </li>
 </ul>
@@ -1625,7 +1625,7 @@ Functions</h2></td></tr>
 <li>2 handle is NULL</li>
 <li>3 linked functions is NULL</li>
 <li>4 id is error</li>
-<li>5 get nvm calibration failed</li>
+<li>5 reset failed</li>
 <li>6 read calibration failed </li>
 </ul>
 </dd></dl>

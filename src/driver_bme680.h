@@ -88,7 +88,7 @@ typedef enum
  */
 typedef enum
 {
-    BME680_OVERSAMPLING_SKIP = 0x00,        /**< oversampling x1 */
+    BME680_OVERSAMPLING_SKIP = 0x00,        /**< skip */
     BME680_OVERSAMPLING_x1   = 0x01,        /**< oversampling x1 */
     BME680_OVERSAMPLING_x2   = 0x02,        /**< oversampling x2 */
     BME680_OVERSAMPLING_x4   = 0x03,        /**< oversampling x4 */
@@ -367,7 +367,7 @@ uint8_t bme680_get_addr_pin(bme680_handle_t *handle, bme680_address_t *addr_pin)
  *            - 2 handle is NULL
  *            - 3 linked functions is NULL
  *            - 4 id is error
- *            - 5 get nvm calibration failed
+ *            - 5 reset failed
  *            - 6 read calibration failed
  * @note      none
  */
@@ -990,7 +990,7 @@ uint8_t bme680_resistance_heater_convert_to_register(bme680_handle_t *handle, fl
  * @param[out] *reg pointer to a register raw buffer
  * @return     status code
  *             - 0 success
- *             - 1 ms >= 0x0FC0
+ *             - 1 ms > 0x0FC0
  *             - 2 handle is NULL
  *             - 3 handle is not initialized
  * @note       none

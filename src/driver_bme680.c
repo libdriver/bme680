@@ -463,7 +463,7 @@ static uint8_t a_bme680_get_nvm_calibration(bme680_handle_t *handle)
 
         return 1;                                                                              /* return error */
     }
-    handle->range_sw_err = (int8_t)((reg >> 4) & 0xF);                                         /* set range switch error */
+    handle->range_sw_err = (int8_t)(((int8_t)(reg & 0xF0)) / 16);                              /* set range switch error */
     handle->t_fine = 0.0f;                                                                     /* init 0 */
     handle->amb_temp = 25;                                                                     /* set 25c */
 
@@ -748,7 +748,7 @@ uint8_t bme680_get_interface(bme680_handle_t *handle, bme680_interface_t *interf
  *            - 2 handle is NULL
  *            - 3 linked functions is NULL
  *            - 4 id is error
- *            - 5 get nvm calibration failed
+ *            - 5 reset failed
  *            - 6 read calibration failed
  * @note      none
  */
@@ -2315,7 +2315,7 @@ uint8_t bme680_idac_heater_convert_to_data(bme680_handle_t *handle, uint8_t reg,
         return 3;                               /* return error */
     }
     
-    *ma = (float)(((reg >> 1) + 1) / 8);        /* convert raw data to real data */
+    *ma = (float)(((reg >> 1) + 1) / 8.0f);     /* convert raw data to real data */
     
     return 0;                                   /* success return 0 */
 }
@@ -2327,7 +2327,7 @@ uint8_t bme680_idac_heater_convert_to_data(bme680_handle_t *handle, uint8_t reg,
  * @param[out] *reg pointer to a register raw buffer
  * @return     status code
  *             - 0 success
- *             - 1 ms >= 0x0FC0
+ *             - 1 ms > 0x0FC0
  *             - 2 handle is NULL
  *             - 3 handle is not initialized
  * @note       none
@@ -2345,9 +2345,9 @@ uint8_t bme680_gas_wait_convert_to_register(bme680_handle_t *handle, uint16_t ms
         return 3;                                              /* return error */
     }
     
-    if (ms >= 0xFC0)                                           /* check ms */
+    if (ms > 0xFC0)                                            /* check ms */
     {
-        handle->debug_print("bme680: ms >= 0x0FC0.\n");        /* ms >= 0x0FC0 */
+        handle->debug_print("bme680: ms > 0x0FC0.\n");         /* ms > 0x0FC0 */
 
         return 1;                                              /* return error */
     }
